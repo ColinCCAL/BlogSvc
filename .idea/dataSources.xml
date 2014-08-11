@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="308384877">
+    <data-source source="LOCAL" name="SQL Server - @COLIN-PC\COLIN" uuid="4db7f8ff-26b2-4965-aade-55b9c82a34bd">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://COLIN-PC\COLIN</jdbc-url>
+      <user-name>Colin</user-name>
+      <user-password>dfdddfc5dfcedfc3</user-password>
+      <schema-pattern>master.*</schema-pattern>
+      <default-schemas>master.*</default-schemas>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="hibernate.cfg.xml" uuid="f300f505-d211-424d-a713-f6a1177faef2">
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://COLIN-PC\COLIN</jdbc-url>
+      <user-name>ColinC</user-name>
+      <user-password>dfdddfc5dfcedfc3</user-password>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/.IntelliJIdea13/config/jdbc-drivers/sqljdbc4-4.0.2206.100.jar</url>
+        </library>
+        <library>
+          <url>file://$USER_HOME$/.IntelliJIdea13/config/jdbc-drivers/sqlserver-win-auth.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="src:hibernate.cfg.xml" uuid="cf9fc357-771e-4d98-baa7-9036c14a05c0">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://COLIN-PC\COLIN</jdbc-url>
+      <user-name>Colin</user-name>
+      <user-password>dfdddfc5dfcedfc3</user-password>
+      <libraries>
+        <library>
+          <url>file://C:\Users\Colin\.m2\repository\com\microsoft\sqlserver\sqljdbc4\4.0\sqljdbc4-4.0.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="src:main:webapp:hibernate.cfg.xml" uuid="e078e774-a709-4f35-94ea-b5e4ccc23364">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://COLIN-PC\COLIN</jdbc-url>
+      <user-name>Colin</user-name>
+      <user-password>dfdddfc5dfcedfc3</user-password>
+      <libraries>
+        <library>
+          <url>file://C:\Users\Colin\.m2\repository\com\microsoft\sqlserver\sqljdbc4\4.0\sqljdbc4-4.0.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="src:main:webapp:WEB-INF:hibernate.cfg.xml" uuid="a3b89287-08f7-4472-8608-7a0d11c1c6e4">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://COLIN-PC\COLIN</jdbc-url>
+      <user-name>Colin</user-name>
+      <user-password>dfdddfc5dfcedfc3</user-password>
+      <libraries>
+        <library>
+          <url>file://C:\Users\Colin\.m2\repository\com\microsoft\sqlserver\sqljdbc4\4.0\sqljdbc4-4.0.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="src:main:hibernate.cfg.xml" uuid="fd82eef3-e5b1-49e5-aa17-3074ff6d0ca7">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://COLIN-PC\COLIN</jdbc-url>
+      <user-name>Colin</user-name>
+      <user-password>dfdddfc5dfcedfc3</user-password>
+      <libraries>
+        <library>
+          <url>file://C:\Users\Colin\.m2\repository\com\microsoft\sqlserver\sqljdbc4\4.0\sqljdbc4-4.0.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
+

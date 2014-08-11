@@ -1,0 +1,21 @@
+<div ng-controller="BlogPostController">
+    <h1>Post a Blog Entry!!</h1>
+    <form>
+        <input type="text" name="title" ng-model="blog.title"> Title <br/>
+        <input type="text" name="author" ng-model="blog.author"> Author <br/>
+        <input type="text" name="post"  ng-model="blog.post"> Post <br/>
+    </form>
+
+    <div>
+        <br/>
+        <div ng-show="blogPosted">
+        The following data was successfully posted to the Blog Service:
+        </div>
+        <br/>
+        {{retrievedBlog}}
+    </div>
+    <button type="submit" ng-click="postBlog()" class="btn btn-success">
+        Post Blog
+    </button>
+</div>
+
