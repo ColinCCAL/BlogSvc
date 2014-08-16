@@ -1,4 +1,4 @@
-package DAO;
+/*package DAO;
 
 import Blog.Blog;
 import org.hibernate.Session;
@@ -29,7 +29,4 @@ public class HibernateUtil {
     }
 
     public Session openSession() { return sessionFactory.openSession(); }
-
-
-
-}
+}*/

@@ -3,6 +3,7 @@ package Blog;
 import DAO.BlogDAO;
 import DAO.NullDocumentException;
 import com.google.gson.Gson;
+import org.bson.types.ObjectId;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -10,7 +11,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.net.UnknownHostException;
 import java.util.List;
-import java.util.UUID;
 
 @Path("/blog")
 @RequestScoped
@@ -34,7 +34,7 @@ public class BlogResource {
     @GET
     @Path("/{id}")
     @Produces("application/json")
-    public Response get(@PathParam("id") UUID id) throws UnknownHostException {
+    public Response get(@PathParam("id") ObjectId id) throws UnknownHostException {
         Blog blog = blogDAO.get(id);
         if (blog == null) { return Response.status(STATUS_NOT_FOUND).build(); }
         String blogJson = new Gson().toJson(blog);
@@ -46,13 +46,13 @@ public class BlogResource {
     @Consumes("application/json")
     @Produces("application/json")
     public Response post(Blog blog) throws UnknownHostException {
-        UUID id = blogDAO.save(blog);
+        ObjectId id = blogDAO.save(blog);
         return Response.status(STATUS_CREATED).entity(id.toString()).build();
     }
 
     @DELETE
     @Path("/{id}")
-    public Response delete(@PathParam("id") UUID id) throws UnknownHostException {
+    public Response delete(@PathParam("id") ObjectId id) throws UnknownHostException {
         try {
             blogDAO.delete(id);
             return Response.status(STATUS_OK).build();

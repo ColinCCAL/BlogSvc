@@ -1,43 +1,47 @@
 package Blog;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.Date;
-import java.util.UUID;
+import org.bson.types.ObjectId;
 
-@Entity
-@Table(name="Blog")
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 public class Blog {
 
-    private UUID id;
+    private ObjectId id;
     private String title;
     private String author;
     private Date createdOn;
     private String post;
+    private List<Comment> comments;
 
     public Blog() {}
 
-    public Blog(UUID id, String title, String author, Date createdOn, String post) {
+    public Blog(ObjectId id, String title, String author, Date createdOn, String post) {
+        this(id, title, author, createdOn, post, null);
+    }
+
+    public Blog(String title, String author, String post) {
+        this(null, title, author, null, post, null);
+    }
+
+    public Blog(ObjectId id, String title, String author, Date createdOn, String post, List<Comment> comments) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.createdOn = createdOn;
         this.post = post;
+        this.comments = comments;
     }
 
-    @Id
-    @Column(name="Id",columnDefinition="uniqueidentifier")
-    public UUID getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
-    @Column(name="Title")
     public String getTitle() {
         return title;
     }
@@ -46,7 +50,6 @@ public class Blog {
         this.title = title;
     }
 
-    @Column(name="Author")
     public String getAuthor() {
         return author;
     }
@@ -55,7 +58,6 @@ public class Blog {
         this.author = author;
     }
 
-    @Column(name="CreatedOn")
     public Date getCreatedOn() {
         return createdOn;
     }
@@ -64,13 +66,29 @@ public class Blog {
         this.createdOn = createdOn;
     }
 
-    @Column(name="Post",columnDefinition="varchar(max)")
     public String getPost() {
         return post;
     }
 
     public void setPost(String post) {
         this.post = post;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public void addComment(Comment comment) {
+        if (comments == null) {
+            this.comments = new ArrayList<Comment>();
+            comments.add(comment);
+        } else {
+            comments.add(comment);
+        }
     }
 
     @Override

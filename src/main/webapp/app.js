@@ -22,16 +22,13 @@
         }])
 
         .controller('BlogController', [
+            'blogFactory',
             '$scope',
-            '$http',
-            function ($scope, $http) {
-                $http.get('api/blog')
+            function (blogFactory, $scope) {
+                blogFactory.get()
                     .success(function(data) {
                         $scope.posts = data;
-                    })
-                    .error(function(data) {
-                        console.log(data)
-                    })
+                    });
                 }])
 
         .controller('BlogPostController', [
@@ -63,6 +60,25 @@
 
             }
         ])
+        .factory('blogFactory', [
+            '$http',
+            function ($http) {
+                return {
+                    get: function() {
+                        return $http.get('api/blog');
+                    },
+
+                    post: function(blog) {
+                       return $http({
+                            url: 'api/blog',
+                            method: "POST",
+                            data: blog,
+                            headers: {'Content-Type': 'application/json'}
+                        });
+                    }
+                }
+            }
+        ]);
 
 })
 (angular);
