@@ -74,25 +74,12 @@ public class Blog {
         this.post = post;
     }
 
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
-
     public void addComment(Comment comment) {
         if (comments == null) {
             this.comments = new ArrayList<Comment>();
             comments.add(comment);
-        } else {
-            comments.add(comment);
-        }
+        } else { comments.add(comment); }
     }
 
-    @Override
-    public String toString() {
-        return "Blog [Id=" + id + ", Title=" + title + ", Author=" + author + ", CreatedOn=" + createdOn + ", Post=" + post + "]";
-    }
+    public List<Comment> getComments() { return comments; }
 }

@@ -6,6 +6,7 @@ import DAO.MongoBlogDAO;
 import DAO.MongoUtil;
 import DAO.NullDocumentException;
 import org.bson.types.ObjectId;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
@@ -71,6 +72,23 @@ public class MongoBlogDAOTest {
             sut.delete(id);
         }
 
+        @Test
+        public void It_should_delete_the_comment_with_given_id() throws UnknownHostException, NullDocumentException {
+            sut = new MongoBlogDAO();
+            sut.setMongoUtil(new MongoUtil());
+            Blog blog = new Blog("Testing Deleting Comments", "Colin", "I am testing deleting comments");
+            ObjectId blogId = sut.save(blog);
+            Comment comment = new Comment("Colin", "Testing Deleting Comments");
+            ObjectId commentId = sut.saveComment(blogId, comment);
+            Blog retrievedBlog = sut.get(blogId);
+            List<Comment> commentList = retrievedBlog.getComments();
+            Assert.assertTrue(commentList.size() > 0);
+            sut.deleteComment(blogId, commentId);
+            Blog updatedBlog = sut.get(blogId);
+            List<Comment> updatedCommentList = updatedBlog.getComments();
+            Assert.assertTrue(updatedCommentList == null);
+        }
+
         @Test(expected=NullDocumentException.class)
         public void it_should_throw_a_null_document_exception_if_document_does_not_exist() throws UnknownHostException, NullDocumentException {
             sut = new MongoBlogDAO();
@@ -78,7 +96,6 @@ public class MongoBlogDAOTest {
             ObjectId id = ObjectId.get();
             sut.delete(id);
         }
-
     }
 
     public static class When_saveComment_is_called {

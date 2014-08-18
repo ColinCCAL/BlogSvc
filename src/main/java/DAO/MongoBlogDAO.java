@@ -78,6 +78,14 @@ public class MongoBlogDAO implements BlogDAO {
         mongoUtil.close();
     }
 
+    public void deleteComment(ObjectId blogId, ObjectId commentId) throws UnknownHostException {
+        DBCollection collection = mongoUtil.getBlogsCollection();
+        BasicDBObject blogToUpdate = new BasicDBObject("_id", blogId);
+        BasicDBObject commentToDelete = new BasicDBObject("comments", new BasicDBObject("_id", commentId));
+        BasicDBObject deleteQuery = new BasicDBObject("$pull", commentToDelete);
+        collection.update(blogToUpdate, deleteQuery);
+    }
+
     private Blog createBlogFromDB(DBObject dbObject) {
         ObjectId id = (ObjectId) dbObject.get("_id");
         String title = (String) dbObject.get("title");
